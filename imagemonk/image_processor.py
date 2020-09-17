@@ -24,7 +24,7 @@ def rotate_CCW(image):
 
 
 # rotate an image 180
-def rotate_CCW(image):
+def rotate_180(image):
     return cv2.rotate(image, cv2.ROTATE_180)
 
 
