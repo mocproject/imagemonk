@@ -7,9 +7,7 @@ import cv2
 
 # crop an image
 def crop(image, x, y, width, height):
-    
     # TODO add some error checking
-    
     return image[y:y+height, x:x+width]
 
 
@@ -40,16 +38,7 @@ def flip_horizontal(image):
 
 # debugging main function
 def main():
-    image = np.zeros((5,5))
-
-    image[0,0] = 255
-    image[1,1] = 255
-    image[0,2] = 255
-
-    image = cv2.resize(image, None, fx=100, fy=100, interpolation = cv2.INTER_NEAREST)
-
-    cv2.imwrite("test.png", image)
-    cv2.imwrite("flip.png", flip_vertical(image))
+	# add some debugging...
 
 
 if __name__ == main():
