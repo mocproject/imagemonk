@@ -1,3 +1,7 @@
+'''
+Module for image processing functions.
+'''
+
 import numpy as np
 import cv2
 
@@ -18,6 +22,7 @@ def rotate_CW(image):
 def rotate_CCW(image):
     return cv2.rotate(image, cv2.ROTATE_90_COUNTERCLOCKWISE)
 
+
 # rotate an image 180
 def rotate_CCW(image):
     return cv2.rotate(image, cv2.ROTATE_180)
@@ -33,7 +38,7 @@ def flip_horizontal(image):
     return cv2.flip(image, 1)
 
 
-# debugging
+# debugging main function
 def main():
     image = np.zeros((5,5))
 
@@ -41,10 +46,10 @@ def main():
     image[1,1] = 255
     image[0,2] = 255
 
+    image = cv2.resize(image, None, fx=100, fy=100, interpolation = cv2.INTER_NEAREST)
+
     cv2.imwrite("test.png", image)
-    cv2.imwrite("flip.png", flip(image))
-
-
+    cv2.imwrite("flip.png", flip_vertical(image))
 
 
 if __name__ == main():
