@@ -1,8 +1,6 @@
 '''
 Module for image processing functions.
 '''
-
-import numpy as np  # only used to create the test image
 import cv2
 
 # crop an image
