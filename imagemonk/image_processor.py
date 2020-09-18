@@ -32,12 +32,3 @@ def flip_vertical(image):
 # flip an image horizontally
 def flip_horizontal(image):
     return cv2.flip(image, 1)
-
-
-# debugging main function
-def main():
-	# add some debugging...
-
-
-if __name__ == main():
-    main()
