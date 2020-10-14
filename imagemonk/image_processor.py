@@ -43,14 +43,16 @@ def flip_horizontal(image):
     return cv2.flip(image, 1)
 
 
+# check that the width is within bounds
 def check_width(width):
     if bounds["MIN_width"] > width or width > bounds["MAX_width"]:
         raise ValueError("DIMENSION ERROR: WIDTH: " + str(width))
-    
+
+
+# check that the height is within bounds
 def check_height(height):
     if bounds["MIN_height"] > height or height > bounds["MAX_height"]:
         raise ValueError("DIMENSION ERROR: HEIGHT: " + str(height))
-    
 
 '''
 Resize image
@@ -63,19 +65,27 @@ def resize(image, dimensions=None, fx=0, fy=0):
         raise AttributeError("NO PARAMETERS INPUTTED")
     
     # if the dimensions tuple is inputted, do not use the scaling factors
-    if dimensions is not None:
-    
-        check_width(dimensions[0])
-        check_height(dimensions[1])
-
-        return cv2.resize(image, dimensions, interpolation = cv2.INTER_CUBIC)
-
-    # if the dimensions tuple is not inputted, use the scaling factors
-    else:
-
-        check_width(fx * image.shape[1])
+    if dimensions is None:
+    	check_width(fx * image.shape[1])
         check_height(fy * image.shape[0])
 
         return cv2.resize(image, None, fx=fx, fy=fy, interpolation = cv2.INTER_CUBIC)
 
+    # if the dimensions tuple is not inputted, use the scaling factors
+    else:
+        check_width(dimensions[0])
+        check_height(dimensions[1])
+
+        return cv2.resize(image, dimensions, interpolation = cv2.INTER_CUBIC)
+        
+
+
+# convert the image to black and white
+def black_white(image):
+	return cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
+
+
+# convert the image to bgr
+def bgr(image):
+	return cv2.cvtColor(image, cv2.COLOR_GRAY2BGR)
 
