@@ -1,7 +1,7 @@
 [tool.poetry]
 name = "imagemonk"
 version = "7.8.9"
-license = "MIT"
+license = "AGPL"
 authors = ["Ethan Paul <24588726+enpaul@users.noreply.github.com>"]
 description = "HTTP server for uploading images and generating thumbnails"
 repository = "https://github.com/mocproject/imagemonk/"
